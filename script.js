@@ -17,7 +17,17 @@
 // Код возьмите из предыдущего домашнего задания
 
 'use strict';
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+let numberOfFilms;
+
+function start() {
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+    }
+}
+
+start();
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -28,7 +38,8 @@ const personalMovieDB = {
 };
 
 
-for (let i = 0; i < 2; i++) {
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
         const a = prompt('Один из последних просмотренных фильмов?', '');
         const b = prompt('На сколько оцените его?', '');
 
@@ -40,6 +51,24 @@ for (let i = 0; i < 2; i++) {
         }
 
 
+    }    
+};
+
+rememberMyFilms();
+
+function showMyDB() {
+    personalMovieDB.privat == false ? console.log(personalMovieDB.movies) : console.log('qqq');
 }
+
+showMyDB();
+
+function writeYourGenres() {
+    for (let i = 0; i < 3; i++) {
+        const janr = prompt(`Ваш любимый жанр под номером ${i +1}`, '');
+        personalMovieDB.genres.push(janr);
+    }
+}
+
+writeYourGenres();
 
 console.log(personalMovieDB);
