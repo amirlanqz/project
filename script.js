@@ -65,7 +65,7 @@ showMyDB();
 function writeYourGenres() {
     for (let i = 0; i < 3; i++) {
         const janr = prompt(`Ваш любимый жанр под номером ${i +1}`, '');
-        personalMovieDB.genres.push(janr);
+        personalMovieDB.genres.push(janr.trim());
     }
 }
 
